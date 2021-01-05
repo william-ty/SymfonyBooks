@@ -1,0 +1,24 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des auteurs{% endblock %}
+
+{% block body %}
+
+    <p>Il y a {{ auteurs | length }} auteurs</p>
+    <table>
+        <thead>
+            <tr>
+                <th>AUTEUR</th>
+                <th>DATE NAISSANCE</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for auteur in auteurs %}
+                <tr>
+                    <td><a href="{{ path("auteur_show", {'id':auteur.id}) }}">{{ auteur.nom ~ " " ~ auteur.prenom }}</a></td>
+                    <td>{{ auteur.dateNaissance | date("d-m-T") }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

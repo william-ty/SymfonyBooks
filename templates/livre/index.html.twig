@@ -1,0 +1,28 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Liste des livres{% endblock %}
+
+{% block body %}
+
+    <p>Il y a {{ livres | length }} livre(s)</p>
+    <table>
+        <thead>
+            <tr>
+                <th>TITRE</th>
+                <th>PRIX</th>
+                <th>NB PAGES</th>
+                <th>AUTEUR</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for livre in livres %}
+                <tr>
+                    <td>{{ livre.titre }}</td>
+                    <td>{{ livre.prix }}</td>
+                    <td>{{ livre.nbPages }}</td>
+                    <td>{{ livre.auteur }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

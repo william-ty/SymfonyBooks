@@ -1,0 +1,22 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}
+	{{ auteur }}
+{% endblock %}
+
+{% block body %}
+
+    <h1>{{ auteur }}</h1>
+	<p> 
+        TITRE : Date de naissance : {{ auteur.dateNaissance | date("d-m-Y") }}<br>
+        {# Sexe : {{ auteur.sexe }} #}
+	</p>
+    
+    <h2>Bibliographie</h2>
+
+    <ul>
+        {% for livre in auteur.livres %}
+            <li><a href="{{ path('livre_show', {'id':livre.id}) }}">{{ livre }}</a></li>
+        {% endfor %}
+    </ul>
+{% endblock %}

@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{{ livre }}{% endblock %}
+
+{% block body %}
+
+	<h1>{{ livre }}</h1>
+	<p>
+		Auteur : <a href="{{ path('auteur_show', {'id':livre.auteur.id}) }}">{{ livre.auteur }}</a><br>
+		Nombre de pages : {{ livre.nbPages }} pages<br>
+		Prix : {{ livre.prix }} €
+	</p>
+
+{% endblock %}
